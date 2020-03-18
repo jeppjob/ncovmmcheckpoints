@@ -1,0 +1,25 @@
+const container = document.getElementById('output') 
+
+fetch('https://coronavirus-ph-api.now.sh/mm-checkpoints')
+.then((res) => res.json())
+.then((data) => {
+        data.forEach((checkpoint) =>{
+        container.innerHTML += `
+        <div class="bg-gray-100 max-w-sm rounded overflow-hidden shadow-lg">
+        <div class="h-56 px-6 py-4">
+          <div class="font-bold text-gray-900">${checkpoint.location}</div>
+          <p class="text-gray-600 capitalize mb-5">
+          ${checkpoint.city}
+          </p>
+          <p class="text-gray-600 text-base italic">
+          ${checkpoint.description}
+          </p>
+        </div>
+        <div class="px-6 py-4">
+    <a href="https://www.google.com/maps?q=${checkpoint.lat}+${checkpoint.lng}" target="_blank"><span class="inline-block bg-green-900 rounded-full px-4 py-2 text-sm font-bold text-white mr-2">View on Google Maps</span></a>
+      </div>
+        `
+    });
+})
+.catch((err) => console.log(err))
+
