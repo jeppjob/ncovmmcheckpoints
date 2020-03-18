@@ -5,7 +5,7 @@ fetch('https://coronavirus-ph-api.now.sh/mm-checkpoints')
 .then((data) => {
         data.forEach((checkpoint) =>{
         container.innerHTML += `
-        <div class="bg-gray-100 max-w-sm rounded overflow-hidden shadow-lg">
+        <div class="bg-green-100 max-w-sm rounded overflow-hidden shadow-lg">
         <div class="h-56 px-6 py-4">
           <div class="font-bold text-gray-900">${checkpoint.location}</div>
           <p class="text-gray-600 capitalize mb-5">
